@@ -17,7 +17,6 @@ int main()
         {
             d = i + 1;
             c++;
-            //break;
         }
     }
     cout<<c;
