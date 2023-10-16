@@ -19,10 +19,10 @@ int main()
         }
         if(r==t)
         {
-            cout<<"Yes"<<endl;
+            cout<<"YES"<<endl;
         }
         else{
-            cout<<"No"<<endl;
+            cout<<"NO"<<endl;
         }
     }   
     return 0;
