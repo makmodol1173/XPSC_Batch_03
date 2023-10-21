@@ -4,27 +4,25 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
-        vector<string> v(n);
-        for (int i = 0; i < n; i++) {
-            cin >> v[i];
-        }
-        long long c = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                int d = 0;
-                for (int k = 0; k < 2; k++) {
-                    if (v[i][k] != v[j][k]) {
-                        d++;
-                    }
-                }
-                if (d == 1) {
-                    c++;
-                }
-            }
-        }
-        cout << c << endl;
+       long long n;
+       cin>>n;
+       vector<string> v(n);
+       map<char,int> mp,mv;
+       map<string,int> s;
+       for(int i=0;i<n;i++) 
+       {
+           cin>>v[i];
+       }
+       long long ans=0;
+       for(int i=0;i<n;i++)
+       {
+           ans+=(mp[v[i][0]]+mv[v[i][1]] - 2*s[v[i]]);
+           mp[v[i][0]]++;
+           mv[v[i][1]]++;
+           s[v[i]]++;
+       }
+       cout<<ans<<endl;
     }
     return 0;
 }
+
