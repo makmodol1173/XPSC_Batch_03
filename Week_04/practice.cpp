@@ -30,7 +30,7 @@
 //         cout << endl;
 //     }
 //     else
-//         cout << "NO" << endl;
+//         cout << "nO" << endl;
 //     return 0;
 // }
 
@@ -50,7 +50,7 @@
 //         v.push_back(i);
 // 		a[x]++;
 // 	}
-// 	if (v.size() < k)cout << "NO" <<endl;
+// 	if (v.size() < k)cout << "nO" <<endl;
 // 	else {
 // 		cout << "YES" <<endl;
 // 		for (int i = 0; i < k; i++)
@@ -59,42 +59,82 @@
 //     return 0;
 // }
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int t;
+//     cin >> t;
+//     while (t--)
+//     {
+//         string s;
+//         cin >> s;
+//         int p;
+//         int c = 0;
+//         if (s[0] == '0')
+//         {
+//             c += 9;
+//             p = 10;
+//         }
+//         else
+//         {
+//             c += (s[0] - '0' - 1);
+//             p = s[0] - '0';
+//         }
+//         for (int i = 1; i < 4; i++)
+//         {
+//             if (s[i] == '0')
+//             {
+//                 c += abs(10 - p);
+//                 p = 10;
+//             }
+//             else
+//             {
+//                 c += abs(s[i] - '0' - p);
+//                 p = s[i] - '0';
+//             }
+//         }
+//         cout << c + 4 << endl;
+//     }
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main() {
     int t;
     cin >> t;
-    while (t--)
-    {
-        string s;
-        cin >> s;
-        int p;
-        int c = 0;
-        if (s[0] == '0')
-        {
-            c += 9;
-            p = 10;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> v(n);
+        for (int i = 0; i < n; i++) {
+            cin >> v[i];
         }
-        else
-        {
-            c += (s[0] - '0' - 1);
-            p = s[0] - '0';
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += v[i];
         }
-        for (int i = 1; i < 4; i++)
-        {
-            if (s[i] == '0')
-            {
-                c += abs(10 - p);
-                p = 10;
+        if (sum % n != 0) {
+            cout << "no" << endl;
+        } else {
+            int res = sum / n;
+            int c=1;
+            for (int i = 0; i < n; i++) {
+                if (A[i] > res) {
+                    int d = A[i] - res;
+                    if (d % 2 != 0) {
+                        c=0;
+                        break;
+                    }
+                }
             }
-            else
-            {
-                c += abs(s[i] - '0' - p);
-                p = s[i] - '0';
+            if (c) {
+                cout << "Yes" << endl;
+            } else {
+                cout << "no" << endl;
             }
         }
-        cout << c + 4 << endl;
     }
     return 0;
 }
